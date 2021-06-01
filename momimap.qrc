@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>momimap.qml</file>
+    </qresource>
+</RCC>
