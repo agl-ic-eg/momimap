@@ -55,6 +55,7 @@ import QtQuick.Window 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Extras 1.4
+import QtQml 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 
@@ -63,6 +64,12 @@ ApplicationWindow {
 	width: 1920
 	height: 720
 	visible: true
+	title: qsTr("momimap")
+	
+	property string mapbox_access_token : ""
+	property string mapbox_style_urls : "mapbox://styles/wata2ki/ckpe1flmm6eiy17o60nauzfgp"
+	property string mapbox_cache_dir : "/var/cache/momimap"
+
 	
 	Map {
 		id: map
@@ -72,9 +79,9 @@ ApplicationWindow {
 		height: 720
 		plugin: Plugin {
 			name: "mapboxgl"
-			PluginParameter { name: "mapboxgl.access_token"; value: "NEED-TO-SET-OWN-KEY" }
-			PluginParameter { name: "mapboxgl.mapping.additional_style_urls"; value: "mapbox://styles/wata2ki/ckpe1flmm6eiy17o60nauzfgp" }
-			PluginParameter { name: "mapboxgl.mapping.cache.directory"; value: "/var/cache/momimap" }		}
+			PluginParameter { name: "mapboxgl.access_token"; value: mapbox_access_token }
+			PluginParameter { name: "mapboxgl.mapping.additional_style_urls"; value: mapbox_style_urls }
+			PluginParameter { name: "mapboxgl.mapping.cache.directory"; value: mapbox_cache_dir }		}
 		zoomLevel: 18
 		tilt: 60
 		copyrightsVisible: false

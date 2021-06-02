@@ -67,6 +67,10 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
-
+	
+	QObject *rootObject = engine.rootObjects().constFirst();
+	QString StrEnv = qgetenv("MOMIMAP_MAPBOX_ACCESS_TOKEN");
+	rootObject->setProperty("mapbox_access_token", StrEnv);
+	
     return app.exec();
 }
