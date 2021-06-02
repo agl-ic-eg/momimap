@@ -9,6 +9,7 @@ These libraries are required.
 # Usage
 
 ```sh
+export MOMIMAP_MAPBOX_ACCESS_TOKEN=set your access token
 /usr/bin/momimap
 ```
 
